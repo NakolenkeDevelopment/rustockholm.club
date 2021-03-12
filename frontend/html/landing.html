@@ -24,8 +24,8 @@
         <div class="landing-block landing-block-limited">
             <img src="{% static "images/logo/logo-1024.png" %}" alt="">
             <div class="landing-title">
-                <h1>Rustockholm.Клуб</h1>
-                <p>Всё самое интересное происходит за закрытыми дверями</p>
+                <h1>Клуб Rustockholm</h1>
+                <p>Самые интересные мероприятия и волшебные обсуждения происходят и анонсируются за закрытыми дверями</p>
                 <a href="{% url "login" %}" class="button button-black">Войти</a>
             </div>
         </div>
@@ -35,12 +35,13 @@
                 <h2>ЗАЧЕМ</h2>
 
                 <p>
-                    Клуб — это наше закрытое и в меру айтишное сообщество, в котором мы обсуждаем важные темы вдали от большого интернета.
+                    Клуб — это наше закрытое и в сообщество жителей Стокгольма (но рады видеть всех), в котором мы обсуждаем важные для нас темы вдали от большого интернета.
                 </p>
 
                 <p>
                     У нас нет секретной цели, желания захватить мир и другой идейной херни.
                     Мы лишь собрались здесь чтобы наконец-то поговорить честно и открыто, вдали от посторонних глаз.
+                    Единственное, что нас всех объединяет то, что мы говорим по-русски и живем в Швеции. Ну и то, что мы интересные и адекватные.
                 </p>
             </div>
         </div>
@@ -179,9 +180,9 @@
                 <h3 class="feature-title">Движухи, фан и взаимопомощь</h3>
 
                 <ul class="feature-list">
-                    <li>Митапы и онлайн-сходки</li>
-                    <li>Коучинг и менторство между участниками Клуба</li>
-                    <li>У нас запрещена анонимность и действует жесткая модерация. Так мы сохраняем здоровое коммьюнити без говна</li>
+                    <li>Митапы и сходки (оффлайн и онлайн)</li>
+                    <li>Дружба и общение между участниками Клуба</li>
+                    <li>У нас неприемлима анонимность и действует жесткая модерация. Так мы сохраняем здоровое коммьюнити без дичи</li>
                     <li>Подробнее о правилах можно почитать в разделе <a href="{% url "docs" "about" %}" target="_blank">О Клубе</a></li>
                 </ul>
             </div>
@@ -221,8 +222,9 @@
 
                 <div class="map-counters">
                     <div class="map-counter">{{ stats.users }} {{ stats.users | rupluralize:"человек,человека,человек" }}</div>
-                    <div class="map-counter">{{ stats.countries }} {{ stats.countries | rupluralize:"страна,страны,стран"  }}</div>
-                    <div class="map-counter">25+ чатов</div>
+                    <!--<div class="map-counter">{{ stats.countries }} {{ stats.countries | rupluralize:"страна,страны,стран"  }}</div>-->
+                    <div class="map-counter">{{ stats.countries }} {{ stats.countries | rupluralize:"город,города,городов"  }}</div>
+                    <div class="map-counter">10+ чатов</div>
                 </div>
             </div>
         </div>
@@ -254,7 +256,7 @@
 {% block footer %}
     <footer class="footer">
         <div class="footer-left" style="text-align: center; font-size: 130%;">
-            &copy; <a href="https://vas3k.ru" target="_blank">Rustockholm</a> {% now "Y" %}
+            &copy; <a href="https://rustockholm.club" target="_blank">Rustockholm</a> {% now "Y" %}
             &nbsp;&nbsp;&nbsp;&infin;&nbsp;&nbsp;&nbsp;
             <a href="{% url "docs" "contact" %}">Связаться с нами</a><br><br>
         </div>
