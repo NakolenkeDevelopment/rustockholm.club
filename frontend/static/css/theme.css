@@ -6,9 +6,9 @@
     --button-border-radius: 15px;
 
     --button-color: #FFF;
-    --button-bg-color: #333;
-    --button-border: solid 2px #333;
-    --button-hover-color: #333;
+    --button-bg-color: #192841;
+    --button-border: solid 2px #192841;
+    --button-hover-color: #192841;
     --button-hover-bg-color: #FFF;
     --button-hover-border: solid 2px #333;
 }
