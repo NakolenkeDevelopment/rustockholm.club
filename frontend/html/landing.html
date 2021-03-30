@@ -24,30 +24,34 @@
         <div class="landing-block landing-block-limited">
             <img src="{% static "images/logo/logo-1024.png" %}" alt="">
             <div class="landing-title">
-                <h1>Клуб Rustockholm</h1>
-                <p>Самые интересные мероприятия и волшебные обсуждения происходят и анонсируются за закрытыми дверями</p>
+                <h1 class="landing-title-header">rustockholm</h1>
+                <p>Лучшие мероприятия и обсуждения в Стокгольме происходят и анонсируются за закрытыми дверями</p>
                 <a href="{% url "login" %}" class="button button-black">Войти</a>
             </div>
         </div>
 
         <div class="landing-block landing-block-narrow" id="why">
             <div>
-                <h2>ЗАЧЕМ</h2>
+                <h2 class="landing-block-title">Зачем это все?</h2>
 
                 <p>
-                    Клуб — это наше закрытое и в сообщество жителей Стокгольма (но рады видеть всех), в котором мы обсуждаем важные для нас темы вдали от большого интернета.
+                    Клуб — это наше закрытое сообщество жителей Стокгольма (и не только!), в котором мы обсуждаем важные для местных темы вдали от большого интернета.
                 </p>
 
                 <p>
-                    У нас нет секретной цели, желания захватить мир и другой идейной херни.
+                    У нас нет никакой секретной цели, желания захватить мир и другой идейной херни.
                     Мы лишь собрались здесь чтобы наконец-то поговорить честно и открыто, вдали от посторонних глаз.
-                    Единственное, что нас всех объединяет то, что мы говорим по-русски и живем в Швеции. Ну и то, что мы интересные и адекватные.
+                    Нас всех объединяет то, что мы говорим по-русски, и живем в Швеции. И, конечно, что мы интересные и адекватные.
+                </p>
+
+                <p>
+                    Мы не зависим от мнения спонсоров, рекламодателей и кого угодно. То, что важно для нас — мнение друг друга. Мы держимся вдали от любых политических, религиозных и идеалогических движений и предрассудков.
                 </p>
             </div>
         </div>
 
         <div class="landing-block landing-block-limited" id="features">
-            <h2 class="landing-block-title">Что внутри?</h2>
+            <h2 class="landing-block-title">Что можно найти внутри?</h2>
         </div>
 
         <div class="landing-block landing-block-limited">
@@ -55,10 +59,11 @@
                 <h3 class="feature-title">Чужой опыт и инсайды</h3>
 
                 <ul class="feature-list">
-                    <li>В Клубе пишут статьи, просят советов, делятся идеями и показывают пет-проджекты</li>
+                    <li>В Клубе пишут статьи, просят советов, делятся идеями</li>
                     <li>Формат «только для своих» позволяет обсуждать темы без посторонних</li>
-                    <li>Комментарии больше не зашквар</li>
-                    <li>Никаких алгоритмических лент, охоты за вниманием и FOMO</li>
+                    <li>Комментарии — самая важная часть Клуба</li>
+                    <li>Никакой токсичности, только адекватные советы и общение</li>
+                    <li>Регулярные мероприятия, мастер-классы и встречи</li>
                 </ul>
             </div>
             <div class="landing-block-60 landing-posts">
@@ -130,25 +135,7 @@
                     <div class="landing-post-upvotes">87</div>
                     <a href="https://vas3k.club/post/5774/" target="_blank" class="landing-post-link">&nbsp;</a>
                 </div>
-            </div>
-        </div>
-
-        <div class="landing-block landing-screenshots hide-on-iphone">
-            <a href="https://vas3k.club/post/1289/" target="_blank" class="landing-screenshot">
-                <img src="{% static "images/landing/posts/p00003.png" %}" alt="post">
-            </a>
-
-            <a href="https://vas3k.club/post/3467/" target="_blank" class="landing-screenshot">
-                <img src="{% static "images/landing/posts/p00004.png" %}" alt="post">
-            </a>
-
-            <a href="https://vas3k.club/post/2970/" target="_blank" class="landing-screenshot">
-                <img src="{% static "images/landing/posts/p00005.png" %}" alt="post">
-            </a>
-
-            <a href="https://vas3k.club/post/1494/" target="_blank" class="landing-screenshot">
-                <img src="{% static "images/landing/posts/p00009.png" %}" alt="post">
-            </a>
+            </div>  
         </div>
 
         <div class="landing-block landing-block-limited">
@@ -161,18 +148,12 @@
 
                 <ul class="feature-list">
                     <li>Сеть клубных чатиков в телеграме</li>
-                    <li>Коммьюнити по городам и странам</li>
-                    <li>АМА с экспертами и отзывчивые участники</li>
+                    <li>Релевантная информация</li>
+                    <li>Коммьюнити по интересам</li>
+                    <li>Мастер-классы с экспертами и отзывчивые участники</li>
                     <li>Место, в котором хорошо</li>
                 </ul>
             </div>
-        </div>
-
-        <div class="landing-block landing-block-chats">
-            <img src="{% static "images/landing/chats1.png" %}" class="feature-image" alt="chats">
-            <img src="{% static "images/landing/chats2.png" %}" class="feature-image" alt="chats">
-            <img src="{% static "images/landing/chats3.png" %}" class="feature-image" alt="chats">
-            <img src="{% static "images/landing/chats4.png" %}" class="feature-image" alt="chats">
         </div>
 
         <div class="landing-block landing-block-limited">
@@ -180,7 +161,8 @@
                 <h3 class="feature-title">Движухи, фан и взаимопомощь</h3>
 
                 <ul class="feature-list">
-                    <li>Митапы и сходки (оффлайн и онлайн)</li>
+                    <li>Митапы и сходки (как оффлайн, так и онлайн)</li>
+                    <li>Уникальные предложения в Стокгольме</li>
                     <li>Дружба и общение между участниками Клуба</li>
                     <li>У нас неприемлима анонимность и действует жесткая модерация. Так мы сохраняем здоровое коммьюнити без дичи</li>
                     <li>Подробнее о правилах можно почитать в разделе <a href="{% url "docs" "about" %}" target="_blank">О Клубе</a></li>
