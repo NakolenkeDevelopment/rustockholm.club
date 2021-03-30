@@ -81,7 +81,7 @@
                         {% endif %}
                     </span>
                 </a>
-                <a href="{% url "edit_bot" user.slug %}" class="profile-status">
+                <!--<a href="{% url "edit_bot" user.slug %}" class="profile-status">
                     <span class="profile-status-icon">🤖</span>
                     <span class="profile-status-status">
                         {% if user.telegram_id %}
@@ -90,7 +90,7 @@
                             ❌ Бот не подключен
                         {% endif %}
                     </span>
-                </a>
+                </a>-->
             </div>
         {% endif %}
 
@@ -179,7 +179,7 @@
                             {% endif %}
 
                             {% if user.id == me.id %}
-                                <small><br>Для абстрактных тегов типа «ищу работу» или «могу научить» не забудьте рассказать подробности в интро и указать свою экспертизу ниже. Это поможет другим вас найти!</small>
+                                <small><br>Для абстрактных тегов типа «ищу работу» или «могу научить» не забудьте рассказать подробности в интро. Это поможет другим вас найти!</small>
                             {% endif %}
                         </div>
                     {% endif %}
@@ -253,9 +253,9 @@
         {% endif %}
     </div>
 
-    <user-expertise-window submit-form-action="{% url "add_expertise" %}"
+    <!--<user-expertise-window submit-form-action="{% url "add_expertise" %}"
                            :expertise-list="JSON.parse('{{ global_data.expertise | jsonify }}')"
                            v-show="shownWindow === 'add-expertise'"
                            @close-window="shownWindow = null">
-    </user-expertise-window>
+    </user-expertise-window>-->
 {% endblock %}
