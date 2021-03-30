@@ -171,6 +171,7 @@
         .people-filters-tag input:checked + label {
             background-color: var(--opposite-block-bg-color);
             color: var(--opposite-text-color);
+            border-radius: 5px;
         }
 
         .people-filters-tag-bar {
@@ -190,6 +191,7 @@
             .people-filters-tag input:checked + label .people-filters-tag-bar {
                 background-color: var(--block-bg-color);
                 opacity: 1.0;
+                border-radius: 5px;
             }
 
     .people-filters-button {

@@ -17,7 +17,7 @@ html, html[theme="light"] {
     --bg-color: #EEEEEE;
     --opposite-bg-color: #192841;
 
-    --text-color: #333;
+    --text-color: #192841;
     --brighter-text-color: #000;
     --opposite-text-color: #DDD;
 
@@ -28,17 +28,17 @@ html, html[theme="light"] {
 
     --link-color: #192841;
     --link-hover-color: #000;
-    --visited-link-color: #333;
+    --visited-link-color: #192841;
 
     --button-color: #F6F6F6;
     --button-bg-color: #192841;
     --button-disabled-bg-color: #DDD;
-    --button-border: solid 2px #333;
-    --button-hover-color: #333;
+    --button-border: solid 2px #192841;
+    --button-hover-color: #192841;
     --button-hover-bg-color: #EEEEEE;
     --button-hover-border: solid 2px #333;
 
-    --select-color: #333;
+    --select-color: #192841;
     --select-bg-color: #FFF;
 }
 
