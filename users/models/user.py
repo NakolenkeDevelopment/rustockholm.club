@@ -50,7 +50,7 @@ class User(models.Model, ModelDiffMixin):
         (MODERATION_STATUS_DELETED, MODERATION_STATUS_DELETED),
     ]
 
-    DEFAULT_AVATAR = "https://i.vas3k.club/v.png"
+    DEFAULT_AVATAR = "http://d.radikal.ru/d05/2103/00/c974dd061fed.png"
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     slug = models.CharField(max_length=32, unique=True)
