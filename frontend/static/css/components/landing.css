@@ -3,7 +3,8 @@
     line-height: 1.5em;
 }
 .landing-title-header {
-    font-size: 1.7em;
+    font-size: 1.8em;
+    line-height: 1.8em;
     background: -webkit-linear-gradient(45deg,#00559b,#ffce00,#00559b 120%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
