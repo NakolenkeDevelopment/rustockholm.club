@@ -1,3 +1,5 @@
+from urllib.parse import urlencode
+
 from django import template
 from django.conf import settings
 from django.template import loader
@@ -70,7 +72,7 @@ summary_template = loader.get_template("posts/embeds/summary.html")
 
 @register.simple_tag()
 def link_summary(post):
-    if not post.metadata or not post.metadata.get("title") or not post.metadata.get("url"):
+    if not post.metadata or not any(map(post.metadata.get, ['title', 'url', 'description'])):
         return ""
 
     embed = ""
@@ -92,5 +94,21 @@ def can_upvote(user, post_or_comment):
 
 
 @register.filter
-def any_image(post, default="/static/images/share.png"):
-    return extract_any_image(post) or default
+def any_image(post):
+    return extract_any_image(post) or settings.OG_IMAGE_DEFAULT
+
+
+@register.simple_tag()
+def og_image(post):
+    if not settings.OG_IMAGE_GENERATOR_URL:
+        return any_image(post)
+
+    params = urlencode({
+        **settings.OG_IMAGE_GENERATOR_DEFAULTS,
+        "title": f"{post.prefix} {post.title}" if post.prefix else post.title,
+        "author": post.author.slug,
+        "ava": post.author.get_avatar(),
+        "bg": extract_any_image(post) or "#FFFFFF"
+    })
+
+    return f"{settings.OG_IMAGE_GENERATOR_URL}?{params}"

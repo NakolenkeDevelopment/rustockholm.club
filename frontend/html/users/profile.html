@@ -56,11 +56,11 @@
                         <span class="profile-status-number">{% if user.membership_days_left < 10 %}😱{% else %}😋{% endif %} {{ user.membership_days_left | ceil | cool_number }}</span>
                         <span class="profile-status-text">{{ user.membership_days_left | ceil | rupluralize:"день,дня,дней" }}</span>
                     {% elif user.membership_days_left < 700 %}
-                        <span class="profile-status-number">😎 {{ user.membership_months_left | ceil | cool_number  }}</span>
-                        <span class="profile-status-text">{{ user.membership_months_left | ceil | rupluralize:"месяц,месяца,месяцев" }}</span>
+                        <span class="profile-status-number">😎 {{ user.membership_months_left | floor | cool_number  }}</span>
+                        <span class="profile-status-text">{{ user.membership_months_left | floor | rupluralize:"месяц,месяца,месяцев" }}</span>
                     {% else %}
-                        <span class="profile-status-number">💎 {{ user.membership_years_left | ceil | cool_number }}</span>
-                        <span class="profile-status-text">{{ user.membership_years_left | ceil | rupluralize:"год,года,лет" }}</span>
+                        <span class="profile-status-number">💎 {{ user.membership_years_left | floor | cool_number }}</span>
+                        <span class="profile-status-text">{{ user.membership_years_left | floor | rupluralize:"год,года,лет" }}</span>
                     {% endif %}
                 </a>
                 <a href="{% url "edit_notifications" user.slug %}" class="profile-status">
@@ -76,7 +76,7 @@
                             {% elif user.email_digest_type == "weekly" %}
                                 Еженедельный журнал 💎
                             {% else %}
-                                Дайджест отключён ❌
+                                Дайджест и журнал отключёны ❌
                             {% endif %}
                         {% endif %}
                     </span>
@@ -92,12 +92,24 @@
                     </span>
                 </a>-->
             </div>
+        {% else %}
+            <div class="profile-statuses">
+                <div class="profile-friend-button">
+                    <friend-button
+                        url="{% url "toggle_friend" user.slug %}"
+                        {% if friend %}is-friend-by-default{% endif %}>
+                    </friend-button>
+                </div>
+                <div class="profile-friend-button-comment">
+                    &larr; тестируем бета-версию подписки на все посты и комменты юзера через бота
+                </div>
+            </div>
         {% endif %}
 
         {% if intro %}
             <div class="block profile-intro">
                 <div class="profile-header">
-                    <a href="{% url "show_post" "intro" intro.slug %}">#intro &rarr;</a>
+                    <a href="{% url "show_post" "intro" intro.slug %}">Интро &rarr;</a>
                     {% if me.id == user.id %}
                         <a href="{% url "edit_post" intro.slug  %}" class="button post-edit-button profile-intro-edit">
                             <i class="fas fa-edit"></i>
@@ -154,6 +166,7 @@
                             {% endfor %}
                         </div>
                     </div>
+
                     {% if similarity %}
                         {% if tag_group.list.0.group == "personal" %}
                         <div class="profile-tags-footer">
@@ -165,6 +178,7 @@
                         </div>
                         {% endif %}
                     {% endif %}
+
                     {% if tag_group.list.0.group == "club" %}
                         <div class="profile-tags-footer">
                             {% if user.contact %}
@@ -231,8 +245,11 @@
         {% endif %}
 
         {% if comments %}
+            <div class="profile-header">
+                <a href="{% url "profile_comments" user.slug  %}">Комментарии ({{ comments_total }}) &rarr;</a>
+            </div>
+
             <div class="profile-comments">
-                <div class="profile-header">Последние комментарии</div>
                 {% for comment in comments %}
                     {% include "comments/types/snippet.html" with comment=comment %}
                 {% endfor %}
@@ -240,15 +257,14 @@
         {% endif %}
 
         {% if posts %}
+            <div class="profile-header">
+                <a href="{% url "profile_posts" user.slug  %}">Посты ({{ posts_total }}) &rarr;</a>
+            </div>
+
             <div class="profile-posts">
-                <div class="profile-header">Посты</div>
                 {% for post in posts %}
                     {% include "posts/items/items.html" %}
                 {% endfor %}
-
-                <div class="feed-paginator">
-                    {% paginator posts %}
-                </div>
             </div>
         {% endif %}
     </div>

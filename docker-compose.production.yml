@@ -3,11 +3,12 @@ version: "3.7"
 services:
   club_app: &app
     build:
-      dockerfile: production.dockerfile
+      dockerfile: Dockerfile
       context: .
     command: make docker-run-production
     container_name: club_app
     environment:
+      - MODE=production
       - PYTHONUNBUFFERED=1
       - DEBUG=false
       - APP_HOST=https://vas3k.club
@@ -18,6 +19,9 @@ services:
       - POSTGRES_HOST=postgres
       - REDIS_DB=0
       - REDIS_HOST=redis
+      - EMAIL_HOST
+      - EMAIL_PORT
+      - DEFAULT_FROM_EMAIL
     restart: always
     volumes:
       - ./frontend/static:/app/frontend/static
@@ -27,7 +31,7 @@ services:
       - redis
       - queue
     ports:
-      - "8814:8814"
+      - "127.0.0.1:8814:8814"
 
   queue:
     <<: *app
@@ -60,7 +64,7 @@ services:
     volumes:
       - /home/vas3k/pgdata:/var/lib/postgresql/data:rw
     ports:
-      - "54333:5432"
+      - "127.0.0.1:54333:5432"
 
   redis:
     image: redis:alpine

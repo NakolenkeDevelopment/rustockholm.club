@@ -152,9 +152,6 @@
                     Это помогает новичкам быстро влиться в коммьюнити и найти единомышленников.
                     Но сначала <strong>его прочитает модератор, чтобы вы не попытались нас всех обмануть</strong>.
                 </p>
-                <p>
-                    Вот примеры хороших интро: <a href="https://vas3k.club/intro/vas3k/" target="_blank">Rustockholm</a>, <a href="https://vas3k.club/intro/lena/">Лена</a>, <a href="https://vas3k.club/intro/Sciannadev/" target="_blank">Анна</a>.
-                </p>
             </div>
 
             <div class="form-row form-row-intro">
@@ -192,126 +189,45 @@
             </div>
 
             <div class="form-row">
-                <div class="user-edit-digest">
-                    <div class="user-edit-digest-item">
+                <div class="big-radio">
+                    <div class="big-radio-item">
                         {{ form.email_digest_type.1.tag }}
-                        <label for="{{ form.email_digest_type.1.id_for_label }}" class="user-edit-digest-label">
+                        <label for="{{ form.email_digest_type.1.id_for_label }}" class="big-radio-label">
                             <i class="fas fa-envelope-open"></i>
-                            <span class="user-edit-digest-name">Ежедневные<br> обновления + журнал</span>
-                            <span class="user-edit-digest-description">Шлите мне всё!</span>
+                            <span class="big-radio-title">Ежедневные<br> обновления + журнал</span>
+                            <span class="big-radio-description">Шлите мне всё!</span>
                         </label>
                     </div>
-                    <div class="user-edit-digest-item">
+                    <div class="big-radio-item">
                         {{ form.email_digest_type.2.tag }}
-                        <label for="{{ form.email_digest_type.2.id_for_label }}" class="user-edit-digest-label">
+                        <label for="{{ form.email_digest_type.2.id_for_label }}" class="big-radio-label">
                             <i class="fas fa-calendar-week"></i>
-                            <span class="user-edit-digest-name">Журнал раз в неделю</span>
-                            <span class="user-edit-digest-description">Подборка отборного контента за неделю</span>
+                            <span class="big-radio-title">Журнал раз в неделю</span>
+                            <span class="big-radio-description">Подборка отборного контента за неделю</span>
                         </label>
                     </div>
-                    <div class="user-edit-digest-item">
+                    <div class="big-radio-item">
                         {{ form.email_digest_type.0.tag }}
-                        <label for="{{ form.email_digest_type.0.id_for_label }}" class="user-edit-digest-label">
+                        <label for="{{ form.email_digest_type.0.id_for_label }}" class="big-radio-label">
                             <i class="fab fa-telegram"></i>
-                            <span class="user-edit-digest-name">Онлайн в <a href="{{ settings.TELEGRAM_CLUB_CHANNEL_URL }}" rel="noreferrer" target="_blank">телеграме</a></span>
-                            <span class="user-edit-digest-description">Не хочу никаких писем, сам подпишусь</span>
+                            <span class="big-radio-title">Онлайн в <a href="{{ settings.TELEGRAM_CLUB_CHANNEL_URL }}" rel="noreferrer" target="_blank">телеграме</a></span>
+                            <span class="big-radio-description">Не хочу никаких писем, сам разберусь (нет)</span>
                         </label>
                     </div>
                 </div>
                 {% if form.email_digest_type.errors %}<span class="form-row-errors">{{ form.email_digest_type.errors }}</span>{% endif %}
             </div>
 
-            <!--<div class="block-header">Еще способы быть в курсе 👇</div>
 
-            <div class="clearfix20"></div>
 
-            <div class="block network-block" id="main">
-                <div class="network-channels">
-                    <a href="{{ settings.TELEGRAM_CLUB_CHANNEL_URL }}" rel="noreferrer" target="_blank" class="network-channel">
-                        <span class="avatar network-channel-icon" style="background-image: url('https://i.vas3k.club/eab0c7350e8159ec630d820b430e41ac4ad9a7533b7e5cbb931618e8d6e70233.jpg');"></span>
-                        <span class="network-channel-name text-120">Телеграм-канал Клуба</span>
-                        <span class="network-channel-description">Лучшие посты, отобранные руками</span>
-                    </a>
 
-                    <a href="https://twitter.com/vas3k_club" target="_blank" class="network-channel">
-                        <span class="avatar network-channel-icon" style="background-image: url('https://i.vas3k.club/9d12a3d9dd99fecbc9eb7b76174ed7bcc0328989103c80439aaeb725b3c68ee7.jpg');"></span>
-                        <span class="network-channel-name text-120">Твиттер-фид</span>
-                        <span class="network-channel-description">Бездушная машина постит ссылки на новые посты</span>
-                    </a>
-
-                    <a href="{{ settings.TELEGRAM_CLUB_CHAT_URL }}" rel="noreferrer" target="_blank" class="network-channel">
-                        <span class="avatar network-channel-icon" style="background-image: url('https://i.vas3k.club/b8c8cc57c58470a1ea7633b53e5f8014a7d9ad638169c440a3cfc6ff6a89da59.jpg');"></span>
-                        <span class="network-channel-name text-120">Rustockholm.Бар</span>
-                        <span class="network-channel-description">Главный чат Клуба, но там бывает шумно</span>
-                    </a>
-
-                    <a href="{% url "network" %}" target="_blank" class="network-channel">
-                        <span class="avatar network-channel-icon" style="background-image: url('https://i.vas3k.club/9c66fb5f09d7700cc117e535f8436d006dbf757e78e16255830366379bd09a1f.jpg');"></span>
-                        <span class="network-channel-name text-120">Секретные Чаты</span>
-                    </a>
-                </div>
-            </div> -->
-
-            <div class="clearfix50"></div>
-
-            <div class="block-header">🤖<br>Познакомьтесь с телеграм-ботом</div>
-
-            <div class="block-description">
-                <p>
-                    Наша фишка. На него завязана много фич сайта.
-                    Бот присылает ответы на ваши комментарии, через него можно отвечать и даже писать посты.
-                    Не беспокойтесь, другие пользователи не узнают ваш аккаунт.
-                </p>
-
-                <p id="telegram-auth-button" style="padding-top: 30px; padding-bottom: 30px;">
-                    <script src="https://telegram.org/js/telegram-widget.js?8" data-telegram-login="vas3k_club_bot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-                    <script type="text/javascript">
-                        function onTelegramAuth(user) {
-                            console.info(user);
-                            fetch('{% url "link_telegram" %}?is_ajax=true', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Accept': 'application/json, text/plain, */*',
-                                        'Content-Type': 'application/json'
-                                    },
-                                    credentials: "include",
-                                    body: JSON.stringify(user)
-                                })
-                              .then((response) => {
-                                  return response.json();
-                              })
-                              .then((data) => {
-                                  if (data.status === "success") {
-                                      document.getElementById("telegram-auth-data").innerHTML = "😎 Вы авторизованы как: " + data.telegram.username;
-                                      document.getElementById("telegram-auth-button").style.display = "none";
-                                  } else {
-                                      document.getElementById("telegram-auth-data").innerHTML = "Что-то пошло не так. Попробуйте снова.";
-                                  }
-                                  document.getElementById("telegram-auth-data").style.display = "block";
-                              });
-                        }
-                    </script>
-                </p>
-
-                <p class="text-80">
-                    ☝️ Если кнопки сверху не видно, значит какой-то AdBlock её заблокировал. Придётся пойти другим путём.
-                    Запустите нашего <a href="{{ settings.TELEGRAM_BOT_URL }}" rel="noreferrer" target="_blank">бота</a> и скажите ему вот этот секретный код: <strong>{{ form.instance.secret_hash }}</strong>
-                </p>
-
-                <p class="user-telegram-auth-data" id="telegram-auth-data" style="display: none;"></p>
-            </div>
-
-            <div class="clearfix50"></div>
-
-            <div class="form-row form-row-checkbox">
+            <div class="form-row form-row-checkbox" style="padding-bottom: 0;">
                 <label for="{{ form.privacy_policy_accepted.id_for_label }}" class="form-label">
                     {{ form.privacy_policy_accepted }}
                       &larr; я даю согласие на обработку моих персональных данных, использование куков и других вещей, без которых современный интернет вообще не будет работать
                 </label>
                 {% if form.privacy_policy_accepted.errors %}<span class="form-row-errors">{{ form.privacy_policy_accepted.errors }}</span>{% endif %}
             </div>
-
-            <div class="clearfix50"></div>
 
             <button type="submit" class="button button-red button-big">Отправить на ревью</button>
         </form>

@@ -43,9 +43,9 @@
 {% endblock %}
 
 {% block body %}
-    {% if author_intro %}
+    {% if digest_intro %}
         <div class="editorial">
-            {{ author_intro | email_markdown }}
+            {{ digest_intro | email_markdown }}
         </div>
     {% endif %}
 

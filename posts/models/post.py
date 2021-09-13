@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from uuid import uuid4
 
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.db.models import F
 from django.template.defaultfilters import truncatechars
@@ -9,6 +10,7 @@ from django.urls import reverse
 from django.utils.html import strip_tags
 from simple_history.models import HistoricalRecords
 
+from common.data.labels import LABELS
 from common.models import ModelDiffMixin
 from posts.models.topics import Topic
 from users.models.user import User
@@ -28,6 +30,7 @@ class Post(models.Model, ModelDiffMixin):
     TYPE_BATTLE = "battle"
     TYPE_ADS = "ads"
     TYPE_WEEKLY_DIGEST = "weekly_digest"
+    TYPE_GUIDE = "guide"
     TYPES = [
         (TYPE_POST, "Текст"),
         (TYPE_INTRO, "#intro"),
@@ -59,7 +62,7 @@ class Post(models.Model, ModelDiffMixin):
 
     TYPE_TO_PREFIX = {
         TYPE_POST: "",
-        TYPE_INTRO: "#intro",
+        TYPE_INTRO: "Интро",
         TYPE_LINK: "➜",
         TYPE_PAIN: "Боль:",
         TYPE_IDEA: "Идея:",
@@ -77,7 +80,8 @@ class Post(models.Model, ModelDiffMixin):
     author = models.ForeignKey(User, related_name="posts", db_index=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=32, choices=TYPES, default=TYPE_POST, db_index=True)
     topic = models.ForeignKey(Topic, related_name="posts", null=True, db_index=True, on_delete=models.SET_NULL)
-    label = models.JSONField(null=True)
+    label_code = models.CharField(max_length=16, null=True, db_index=True)
+    coauthors = ArrayField(models.CharField(max_length=32), default=list, null=False, db_index=True)
 
     title = models.TextField(null=False)
     text = models.TextField(null=False)
@@ -91,7 +95,7 @@ class Post(models.Model, ModelDiffMixin):
     updated_at = models.DateTimeField(auto_now=True)
     last_activity_at = models.DateTimeField(auto_now_add=True, db_index=True)
     published_at = models.DateTimeField(null=True, db_index=True)
-    deleted_at = models.DateTimeField(null=True, db_index=True)
+    deleted_at = models.DateTimeField(null=True)
 
     comment_count = models.IntegerField(default=0)
     view_count = models.IntegerField(default=0)
@@ -99,12 +103,12 @@ class Post(models.Model, ModelDiffMixin):
     hotness = models.IntegerField(default=0, db_index=True)
 
     is_visible = models.BooleanField(default=False)  # published or draft
-    is_visible_on_main_page = models.BooleanField(default=True)  # main page or room-only post
+    is_visible_in_feeds = models.BooleanField(default=True)  # hide post from main feeds (still visible in rooms)
     is_commentable = models.BooleanField(default=True)  # allow comments
-    is_approved_by_moderator = models.BooleanField(default=False)  # expose in newsletters, rss, etc
-    is_public = models.BooleanField(default=False)  # visible for the outside world
-    is_pinned_until = models.DateTimeField(null=True)  # pin on top of the main feed
-    is_shadow_banned = models.BooleanField(default=False)  # hide from main page
+    is_approved_by_moderator = models.BooleanField(default=False)  # post is exposed in newsletters, rss, etc
+    is_public = models.BooleanField(default=False)  # post is visible for the outside world
+    is_pinned_until = models.DateTimeField(null=True)  # pin on top on the main page
+    is_shadow_banned = models.BooleanField(default=False)  # hide from feeds but not for author
 
     history = HistoricalRecords(
         user_model=User,
@@ -119,6 +123,13 @@ class Post(models.Model, ModelDiffMixin):
             "view_count",
             "upvotes",
             "hotness",
+            "label_code",
+            "is_approved_by_moderator",
+            "is_commentable",
+            "is_visible_in_feeds",
+            "is_pinned_until",
+            "is_shadow_banned",
+            "topic",
         ],
     )
 
@@ -163,6 +174,9 @@ class Post(models.Model, ModelDiffMixin):
     def decrement_vote_count(self):
         return Post.objects.filter(id=self.id).update(upvotes=F("upvotes") - 1)
 
+    def can_edit(self, user):
+        return self.author == user or user.is_moderator or user.slug in self.coauthors
+
     @property
     def emoji(self):
         return self.TYPE_TO_EMOJI.get(self.type) or ""
@@ -170,6 +184,17 @@ class Post(models.Model, ModelDiffMixin):
     @property
     def prefix(self):
         return self.TYPE_TO_PREFIX.get(self.type) or ""
+
+    @property
+    def label(self):
+        lbl = LABELS.get(self.label_code)
+        if lbl is not None:
+            lbl['code'] = self.label_code
+        return lbl
+
+    @property
+    def coauthors_with_details(self):
+        return User.objects.filter(slug__in=self.coauthors).all()
 
     @property
     def is_pinned(self):

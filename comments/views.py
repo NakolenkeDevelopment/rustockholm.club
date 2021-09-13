@@ -78,7 +78,7 @@ def create_comment(request, post_slug):
                 "message": f"Мы уже получили оповещение и скоро пофиксим. "
                            f"Ваш коммент мы сохранили чтобы вы могли скопировать его и запостить еще раз:",
                 "data": form.cleaned_data.get("text")
-            })
+            }, status=500)
 
     raise Http404()
 
@@ -99,9 +99,10 @@ def edit_comment(request, comment_id):
             raise AccessDenied()
 
         if not comment.is_editable:
+            hours = int(settings.COMMENT_EDITABLE_TIMEDELTA.total_seconds() // 3600)
             raise AccessDenied(
                 title="Время вышло",
-                message="Комментарий можно редактировать только в первые 3 часа после создания"
+                message=f"Комментарий можно редактировать только в течение {hours} часов после создания"
             )
 
         if not comment.post.is_visible or not comment.post.is_commentable:

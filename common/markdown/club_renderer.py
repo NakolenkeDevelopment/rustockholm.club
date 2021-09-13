@@ -1,5 +1,8 @@
+import html
 import mistune
+from urllib.parse import unquote
 from mistune import escape_html
+from slugify import slugify
 
 from common.regexp import IMAGE_RE, VIDEO_RE, YOUTUBE_RE, TWITTER_RE, USERNAME_RE
 
@@ -14,6 +17,11 @@ class ClubRenderer(mistune.HTMLRenderer):
         text = text.replace("\n", "<br>\n")  # Mistune 2.0 broke newlines, let's hack it =/
         return f"<p>{text}</p>\n"
 
+    def heading(self, text, level):
+        tag = f"h{level}"
+        anchor = slugify(text[:24])
+        return f"<{tag} id=\"{anchor}\"><a href=\"#{anchor}\">{text}</a></{tag}>\n"
+
     def link(self, link, text=None, title=None):
         if not text and not title:
             # it's a pure link (without link tag) and we can try to parse it
@@ -21,7 +29,12 @@ class ClubRenderer(mistune.HTMLRenderer):
             if embed:
                 return embed
 
-        return super().link(link, text, title)
+        if text is None:
+            text = link
+
+        # here's some magic of unescape->unquote->escape
+        # to fix cyrillic (and other non-latin) wikipedia URLs
+        return f'<a href="{self._safe_url(link)}">{html.escape(unquote(html.unescape(text or link)))}</a>'
 
     def image(self, src, alt="", title=None):
         embed = self.embed(src, alt, title)
@@ -58,7 +71,9 @@ class ClubRenderer(mistune.HTMLRenderer):
         video_tag = (
             f'<span class="ratio-16-9">'
             f'<iframe loading="lazy" src="https://www.youtube.com/embed/{escape_html(youtube_match.group(1))}'
-            f'?autoplay=0&amp;controls=1&amp;showinfo=1&amp;vq=hd1080" frameborder="0"></iframe>'
+            f'?autoplay=0&amp;controls=1&amp;showinfo=1&amp;vq=hd1080"'
+            f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"'
+            f'allowfullscreen></iframe>'
             f"</span>"
         )
         caption = f"<figcaption>{escape_html(title)}</figcaption>" if title else ""
@@ -74,5 +89,6 @@ class ClubRenderer(mistune.HTMLRenderer):
     def tweet(self, src, alt="", title=None):
         tweet_match = TWITTER_RE.match(src)
         twitter_tag = f'<blockquote class="twitter-tweet" tw-align-center>' \
-                      f'<a href="{tweet_match.group(1)}"></a></blockquote>'
+                      f'<a href="{tweet_match.group(1)}"></a></blockquote><br>' \
+                      f'<a href="{src}" target="_blank">{src}</a>'
         return twitter_tag

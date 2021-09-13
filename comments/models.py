@@ -7,7 +7,7 @@ from django.db.models import F
 from simple_history.models import HistoricalRecords
 
 from club.exceptions import NotFound, BadRequest
-from common.request import parse_ip_address, parse_useragent
+from common.request import parse_ip_address
 from posts.models.post import Post
 from users.models.user import User
 
@@ -44,12 +44,17 @@ class Comment(models.Model):
         user_model=User,
         table_name="comments_history",
         excluded_fields=[
+            "post",
             "html",
+            "reply_to",
             "ipaddress",
             "useragent",
             "created_at",
             "updated_at",
             "upvotes",
+            "is_visible",
+            "is_deleted",
+            "is_pinned",
         ],
     )
 
@@ -112,7 +117,7 @@ class Comment(models.Model):
     def visible_objects(cls, show_deleted=False):
         comments = cls.objects\
             .filter(is_visible=True)\
-            .select_related("author", "reply_to")
+            .select_related("author", "post", "reply_to")
 
         if not show_deleted:
             comments = comments.filter(deleted_by__isnull=True)
@@ -172,7 +177,6 @@ class CommentVote(models.Model):
     comment = models.ForeignKey(Comment, related_name="votes", db_index=True, on_delete=models.CASCADE)
 
     ipaddress = models.GenericIPAddressField(null=True)
-    useragent = models.CharField(max_length=512, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -195,7 +199,6 @@ class CommentVote(models.Model):
             defaults=dict(
                 post=comment.post,
                 ipaddress=parse_ip_address(request) if request else None,
-                useragent=parse_useragent(request) if request else None,
             )
         )
 
