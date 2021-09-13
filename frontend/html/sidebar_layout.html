@@ -28,7 +28,7 @@
                 </li>
             </ul>
 
-            <ul class="feed-sidebar-list feed-sidebar-menu feed-sidebar-menu-small">
+            <ul class="feed-sidebar-list feed-sidebar-menu-small">
                 <li>
                     <a href="{% url "feed_type" "post" %}" class="{% if post_type == "post" %}feed-sidebar-menu-selected{% endif %}">
                         📝 Посты
@@ -66,7 +66,7 @@
                 </li>
             </ul>
         </div>
-
+    <!--
         <div class="feed-sidebar-block">
             <div class="feed-sidebar-header">Комнаты</div>
             <div class="feed-sidebar-topics">
@@ -75,10 +75,12 @@
                 {% endfor %}
             </div>
         </div>
+    -->
     </aside>
     <div class="feed-main">
         {% block feed_content %}
         {% endblock %}
     </div>
+    
 </div>
 {% endblock %}

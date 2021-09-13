@@ -597,9 +597,22 @@
                 font-size: 90%;
             }
 
-            .feed-sidebar-menu-small li {
-                padding-bottom: 5px;
-            }
+                .feed-sidebar-menu-small a {
+                    display: block;
+                    text-decoration: none;
+                    padding: 2px 10px;
+                }
+
+                .feed-sidebar-menu-small a:hover,
+                .feed-sidebar-menu-selected {
+                    color: var(--opposite-text-color);
+                    background-color: var(--opposite-bg-color);
+                    border-radius: 5px;
+                }
+
+                .feed-sidebar-menu-small li {
+                    padding-bottom: 5px;
+                }
 
 .search-results {
 }
