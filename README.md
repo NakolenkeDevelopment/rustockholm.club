@@ -123,7 +123,7 @@ We also run the public [Github Project Board](https://github.com/vas3k/vas3k.clu
 
 ## 🔐 Security and vulnerabilities
 
-If you think you've found a critical vulnerability that should not be exposed to the public yet, you can always email me directly on Telegram [@vas3k](https://t.me/vas3k) or by email: [me@vas3k.ru](mailto:me@vas3k.ru).
+If you think you've found a critical vulnerability that should not be exposed to the public yet, you can always email me directly on Telegram [@vas3k](https://t.me/vas3k) or by email: [club@alleksy.com](mailto:club@alleksy.com).
 
 Please do not test vulnerabilities in public. If you start spamming the website with "test-test-test" posts or comments, our moderators will ban you even if you had good intentions.
 
