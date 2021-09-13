@@ -1,0 +1,14 @@
+# Query: @vas3k.club
+
+6 results - 3 files
+
+README.md:
+  151: Feel free to contact us via email [club@vas3k.club](mailto:club@vas3k.club).
+
+club/settings.py:
+   22:     ("admin", "club@alleksy.com"),
+  166: DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "Вастрик.Клуб <club@alleksy.com>")
+  270:     "Если вы хотите приютить и развить эту тему как новый автор, напишите модераторам Клуба: club@alleksy.com." \
+
+frontend/html/users/edit/account.html:
+  25:                 Сменить их можно, только <a href="mailto:club@alleksy.com">написав нам</a> на почту.

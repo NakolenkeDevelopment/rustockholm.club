@@ -52,8 +52,8 @@ def network(request):
 def robots(request):
     lines = [
         "User-agent: *",
-        "Sitemap: https://vas3k.club/sitemap.xml",
-        "Host: https://vas3k.club",
+        "Sitemap: https://rustockholm.club/sitemap.xml",
+        "Host: https://rustockholm.club",
         "Disallow: /intro/"
         "Disallow: /user/"
         "Disallow: /people/"
