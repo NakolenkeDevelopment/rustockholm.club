@@ -597,10 +597,9 @@
                 font-size: 90%;
             }
 
-                .feed-sidebar-menu-small li {
-                    padding-bottom: 5px;
-                }
-        }
+            .feed-sidebar-menu-small li {
+                padding-bottom: 5px;
+            }
 
 .search-results {
 }

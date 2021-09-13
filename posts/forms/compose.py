@@ -76,6 +76,7 @@ class PostTextForm(PostForm):
     class Meta:
         model = Post
         fields = ["title", "text", "topic", "is_public", "coauthors"]
+'''
 
     def clean(self):
         cleaned_data = super().clean()
