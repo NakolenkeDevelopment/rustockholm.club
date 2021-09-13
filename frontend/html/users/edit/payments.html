@@ -13,15 +13,8 @@
             Клубная карта активна до: <strong>{{ me.membership_expires_at | date:"j E Y" }}</strong>
         </div>
 
-        {% if me.membership_platform_type == "patreon" %}
-            <div class="block pay-subscription">
-                🙂 Подключён <a href="https://www.patreon.com/vas3k" target="_blank">Patreon</a>.
-                Рекомендуем по возможности перейти на прямую оплату ниже.
-            </div>
-        {% else %}
-            {% if not subscriptions %}
-                <div class="block pay-subscription">Автопродление отключено 😟</div>
-            {% endif %}
+        {% if not subscriptions %}
+            <div class="block pay-subscription">Автопродление отключено 😟</div>
         {% endif %}
 
         {% for subscription in subscriptions %}
@@ -40,7 +33,7 @@
         {% endfor %}
 
         <div class="block-description block-description-center">
-            О любых проблемах с оплатой сразу пишите на <a href="mailto:monies@vas3k.club">monies@vas3k.club</a>.<br>
+            О любых проблемах с оплатой сразу пишите на <a href="mailto:support@rustockholm.club">support@rustockholm.club</a>.<br>
             Мы можем исправить или откатить любую транзакцию, так что не волнуйтесь.
         </div>
 

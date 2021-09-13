@@ -199,10 +199,10 @@
     }
 
     .button-red {
-        background-color: #ff1917;
-        border-color: #ff1917;
+        background-color: #a50b08;
+        border-color: #a50b08;
     }
-
+    
 /* SLIDER THEME */
 input[type=range] {
   -webkit-appearance: none;

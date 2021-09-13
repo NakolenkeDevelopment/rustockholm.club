@@ -59,7 +59,33 @@ class PostTextForm(PostForm):
     class Meta:
         model = Post
         fields = ["title", "text", "topic", "is_public"]
+'''
+######## ОБЪЯВЛЕНИЯ
 
+class PostAdsForm(AdsForm):
+    title = forms.CharField(
+        label="Заголовок объявления",
+        required=True,
+        max_length=128,
+        widget=forms.TextInput(attrs={"placeholder": "Заголовок объявления 🤑"}),
+    )
+    text = forms.CharField(
+        label="Текст объявления 🤑",
+        required=True,
+        max_length=500000,
+        widget=forms.Textarea(
+            attrs={
+                "maxlength": 500000,
+                "class": "markdown-editor-full",
+                "placeholder": "Продам гараж, куплю собаку, ищу квартиру, потерял носок..."
+            }
+        ),
+    )
+
+    class Meta:
+        model = Ads
+        fields = ["title", "text", "topic", "is_public"]
+'''
 
 class PostLinkForm(PostForm):
     url = forms.URLField(
@@ -230,7 +256,7 @@ class PostEventForm(PostForm):
         label="Таймзона",
         required=True,
         choices=[
-            ("Europe/Moscow", "по Москве"),
+            ("Europe/Stockholm", "по местному"),
             ("UTC", "UTC"),
         ]
     )

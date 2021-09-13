@@ -26,15 +26,11 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" media="print" onload="this.media='all'; this.onload=null;">
+
 {% endblock %}
 
 {% block content %}
     <div class="people">
-        <div class="people-map">
-            <people-map :geojson="JSON.parse('{% users_geo_json users %}')" class="people-map-container"></people-map>
-        </div>
-
         <form action="." method="get">
             <div class="people-wrapper">
                 <div class="people-title">
@@ -48,22 +44,12 @@
                     <div class="people-search-text">
                         <input name="query" type="text" value="{{ people_query.query | default:"" }}" placeholder="Компания, город, ключевые слова...">
                     </div>
-
-                    <div class="people-search-country">
-                        <select name="country" @change="$event.target.form.submit()">
-                            <option value="">Весь мир</option>
-                            {% for country in active_countries %}
-                                <option value="{{ country.country }}" {% if country.country == people_query.country %}selected{% endif %}>{{ country.country }} ({{ country.country_count }})</option>
-                            {% endfor %}
-                        </select>
-                    </div>
                 </div>
 
                 <div class="block people-filters">
 
                     <div class="people-filters-title hide-on-iphone">
                         <a href="{% url "people" %}">Коммьюнити</a>
-                        &nbsp;<a href="https://vas3k.club/post/2584/"><i class="fas fa-question-circle"></i></a>
                     </div>
 
                     <div class="people-filters-title show-on-iphone">

@@ -3,11 +3,11 @@
     line-height: 1.5em;
 }
 .landing-title-header {
-    font-size: 1.5em;
-    background: -webkit-linear-gradient(45deg,#00559b,#ffce00,#00559b 60%);
+    font-size: 1.7em;
+    background: -webkit-linear-gradient(45deg,#00559b,#ffce00,#00559b 120%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: none;
+    /*display: none;*/
 }
 
     .landing-block {
@@ -17,7 +17,7 @@
         align-items: flex-start;
         position: relative;
         margin: 0 auto;
-        padding: 40px 10px 80px;
+        padding: 40px 10px;
         box-sizing: border-box;
     }
 
@@ -58,7 +58,8 @@
         }
 
         .landing-block p {
-            opacity: 0.85;
+            opacity: 1;
+            font-weight: bold;
         }
 
             @media only screen and (max-width : 570px) {

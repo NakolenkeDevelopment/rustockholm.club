@@ -6,44 +6,44 @@
     --button-border-radius: 15px;
 
     --button-color: #FFF;
-    --button-bg-color: #192841;
-    --button-border: solid 2px #192841;
-    --button-hover-color: #192841;
+    --button-bg-color: #192742;
+    --button-border: solid 2px #192742;
+    --button-hover-color: #192742;
     --button-hover-bg-color: #FFF;
     --button-hover-border: solid 2px #333;
 }
 
 html, html[theme="light"] {
     --bg-color: #EEEEEE;
-    --opposite-bg-color: #192841;
+    --opposite-bg-color: #192742;
 
-    --text-color: #192841;
+    --text-color: #192742;
     --brighter-text-color: #000;
     --opposite-text-color: #DDD;
 
     --block-bg-color: #F6F6F6;
-    --opposite-block-bg-color: #192841;
+    --opposite-block-bg-color: #192742;
     --block-shadow: 10px 15px 40px rgba(83, 91, 110, 0.11);
     --block-border: none;
 
-    --link-color: #192841;
+    --link-color: #192742;
     --link-hover-color: #000;
-    --visited-link-color: #192841;
+    --visited-link-color: #192742;
 
     --button-color: #F6F6F6;
-    --button-bg-color: #192841;
+    --button-bg-color: #192742;
     --button-disabled-bg-color: #DDD;
-    --button-border: solid 2px #192841;
-    --button-hover-color: #192841;
+    --button-border: solid 2px #192742;
+    --button-hover-color: #192742;
     --button-hover-bg-color: #EEEEEE;
     --button-hover-border: solid 2px #333;
 
-    --select-color: #192841;
+    --select-color: #192742;
     --select-bg-color: #FFF;
 }
 
 html[theme="dark"] {
-    --bg-color: #192841;
+    --bg-color: #192742;
     --opposite-bg-color: #EEEEEE;
 
     --text-color: #DDD;

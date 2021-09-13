@@ -26,6 +26,7 @@ class Post(models.Model, ModelDiffMixin):
     TYPE_EVENT = "event"
     TYPE_REFERRAL = "referral"
     TYPE_BATTLE = "battle"
+    TYPE_ADS = "ads"
     TYPE_WEEKLY_DIGEST = "weekly_digest"
     TYPES = [
         (TYPE_POST, "Текст"),
@@ -39,6 +40,7 @@ class Post(models.Model, ModelDiffMixin):
         (TYPE_REFERRAL, "Рефералка"),
         (TYPE_BATTLE, "Батл"),
         (TYPE_WEEKLY_DIGEST, "Журнал Клуба"),
+        (TYPE_ADS, "Объявления"),
     ]
 
     TYPE_TO_EMOJI = {
@@ -51,7 +53,8 @@ class Post(models.Model, ModelDiffMixin):
         TYPE_PROJECT: "🏗",
         TYPE_EVENT: "📅",
         TYPE_REFERRAL: "🏢",
-        TYPE_BATTLE: "🤜🤛"
+        TYPE_BATTLE: "🤜🤛",
+        TYPE_ADS: "🤑"
     }
 
     TYPE_TO_PREFIX = {
@@ -64,7 +67,8 @@ class Post(models.Model, ModelDiffMixin):
         TYPE_PROJECT: "Проект:",
         TYPE_EVENT: "Событие:",
         TYPE_REFERRAL: "Рефералка:",
-        TYPE_BATTLE: "Батл:"
+        TYPE_BATTLE: "Батл:",
+        TYPE_ADS: "Объявление:"
     }
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
