@@ -248,9 +248,9 @@ TELEGRAM_BOT_WEBHOOK_URL = "https://vas3k.club/telegram/webhook/"
 TELEGRAM_BOT_WEBHOOK_HOST = "0.0.0.0"
 TELEGRAM_BOT_WEBHOOK_PORT = 8816
 
-STRIPE_API_KEY = os.getenv("STRIPE_API_KEY") or ""
-STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY") or ""
-STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET") or ""
+STRIPE_API_KEY = os.getenv("STRIPE_API_KEY") or "sk_test_51ITtNLFjSIV8F3exvTuGlFXzFDY8oZfb5PhnB7BKpUEs4SrQv0kBv6n6euSxmSvQF2vlr7LsbrEVnhj4IPxrBwW700IfQahKEC"
+STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY") or "pk_test_51ITtNLFjSIV8F3exEUHn1UjCMC9Hsti3oMjeJgdjsfwYkpLSH3MvHoMP3LWGBt3UDRLuEInD1rDbCTbg2Y1Mb4nS00G7o0mpm5"
+STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET") or "whsec_exLA1sbWlDgeFoPzeSVQDar6UKo5F8qE"
 STRIPE_CANCEL_URL = APP_HOST + "/join/"
 STRIPE_SUCCESS_URL = APP_HOST + "/monies/done/?reference={CHECKOUT_SESSION_ID}"
 
@@ -267,7 +267,7 @@ MIN_FRIEND_COMMENT_LENGTH = 250  # notify comments only from a certain length
 MAX_COMMENTS_FOR_DELETE_VS_CLEAR = 10  # number of comments after which the post cannot be deleted
 CLEARED_POST_TEXT = "```\n" \
     "😥 Этот пост был удален самим автором и от него остались лишь комментарии участников. " \
-    "Если вы хотите приютить и развить эту тему как новый автор, напишите модераторам Клуба: moderator@vas3k.club." \
+    "Если вы хотите приютить и развить эту тему как новый автор, напишите модераторам Клуба: club@alleksy.com." \
     "\n```"
 
 MODERATOR_USERNAME = "moderator"
