@@ -33,7 +33,7 @@ services:
     ports:
       - "127.0.0.1:8814:8814"
     networks:
-      vas3k: {}
+      rstk: {}
 
   queue:
     <<: *app
@@ -68,7 +68,7 @@ services:
     ports:
       - "127.0.0.1:54333:5432"
     networks:
-      vas3k: {}
+      rstk: {}
       
   pgbackups3:
     image: schickling/postgres-backup-s3
@@ -86,7 +86,7 @@ services:
       POSTGRES_PASSWORD: ${db_pass}
       POSTGRES_EXTRA_OPTS: '--schema=public --blobs'
     networks:
-      vas3k: {}
+      rstk: {}
 
   redis:
     image: redis:alpine
@@ -95,7 +95,8 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     networks:
-      vas3k: {}
+      rstk: {}
 
 networks:
-  vas3k:
+  rstk:
+    name: rstk
