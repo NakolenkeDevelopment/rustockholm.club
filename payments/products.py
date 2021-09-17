@@ -48,7 +48,7 @@ def club_invite_activator(product, payment, user):
 PRODUCTS = {
     "club1": {
         "code": "club1",
-        "stripe_id": "price_1JaONFFjSIV8F3ex30ldCFBD" if not IS_TEST_STRIPE else "price_1JaONFFjSIV8F3ex30ldCFBD",
+        "stripe_id": "price_1Jaj3gFjSIV8F3exf5DYerTE" if not IS_TEST_STRIPE else "price_1Jaj3gFjSIV8F3exf5DYerTE",
         "description": "Год членства в Клубе",
         "amount": 150,
         "recurrent": False,
@@ -60,9 +60,9 @@ PRODUCTS = {
     },
     "club1_recurrent_yearly": {
         "code": "club1_recurrent_yearly",
-        "stripe_id": "price_1H73kbKgJMaF2rHtTS3clmtv" if not IS_TEST_STRIPE else "price_1H74BCKgJMaF2rHtRhUtbn3C",
+        "stripe_id": "price_1JaOMiFjSIV8F3exYG91oWCl" if not IS_TEST_STRIPE else "price_1JaOMiFjSIV8F3exYG91oWCl",
         "description": "Год членства в Клубе (автопополнение каждый год)",
-        "amount": 15,
+        "amount": 150,
         "recurrent": "yearly",
         "activator": club_subscription_activator,
         "data": {
@@ -71,9 +71,9 @@ PRODUCTS = {
     },
     "club1_recurrent_monthly": {
         "code": "club1_recurrent_monthly",
-        "stripe_id": "price_1H73luKgJMaF2rHteHuMsvBE" if not IS_TEST_STRIPE else "price_1H74BCKgJMaF2rHtRhUtbn3C",
+        "stripe_id": "price_1Jaj3TFjSIV8F3exmrekbznT" if not IS_TEST_STRIPE else "price_1Jaj3TFjSIV8F3exmrekbznT",
         "description": "Год членства в Клубе (автопополнение каждый месяц)",
-        "amount": 15,
+        "amount": 150,
         "recurrent": "monthly",
         "activator": club_subscription_activator,
         "data": {
@@ -82,9 +82,9 @@ PRODUCTS = {
     },
     "club3": {
         "code": "club3",
-        "stripe_id": "price_1H5c1sKgJMaF2rHtEQ1Jl7Pt" if not IS_TEST_STRIPE else "price_1H5cChKgJMaF2rHtugvlcjKR",
+        "stripe_id": "price_1JajDMFjSIV8F3ex8Ktr4E5K" if not IS_TEST_STRIPE else "price_1JajDMFjSIV8F3ex8Ktr4E5K",
         "description": "Членство в Клубе на 3 года",
-        "amount": 40,
+        "amount": 350,
         "recurrent": False,
         "activator": club_subscription_activator,
         "data": {
@@ -93,7 +93,7 @@ PRODUCTS = {
     },
     "club3_recurrent_yearly": {
         "code": "club3_recurrent_yearly",
-        "stripe_id": "price_1H73n7KgJMaF2rHtZtU9dvJT" if not IS_TEST_STRIPE else "price_1H74BCKgJMaF2rHtRhUtbn3C",
+        "stripe_id": "price_1JajDMFjSIV8F3exqr4SwiPo" if not IS_TEST_STRIPE else "price_1JajDMFjSIV8F3exqr4SwiPo",
         "description": "+3 года членства в Клубе (автопополнение каждый год)",
         "amount": 40,
         "recurrent": "yearly",
@@ -104,7 +104,7 @@ PRODUCTS = {
     },
     "club3_recurrent_monthly": {
         "code": "club3_recurrent_monthly",
-        "stripe_id": "price_1H73oXKgJMaF2rHtITGhACgO" if not IS_TEST_STRIPE else "price_1H74BCKgJMaF2rHtRhUtbn3C",
+        "stripe_id": "price_1JajDMFjSIV8F3exREJebrqX" if not IS_TEST_STRIPE else "price_1JajDMFjSIV8F3exREJebrqX",
         "description": "+3 года членства в Клубе (автопополнение каждый месяц)",
         "amount": 40,
         "recurrent": "monthly",
@@ -115,35 +115,35 @@ PRODUCTS = {
     },
     "club50": {
         "code": "club50",
-        "stripe_id": "price_1H5c3JKgJMaF2rHtPiIED05T" if not IS_TEST_STRIPE else "price_1H5cChKgJMaF2rHtugvlcjKR",
-        "description": "Членство в Клубе на 50 лет",
-        "amount": 150,
+        "stripe_id": "price_1JajFlFjSIV8F3ex8FQCdzlq" if not IS_TEST_STRIPE else "price_1JajFlFjSIV8F3ex8FQCdzlq",
+        "description": "Членство в Клубе на 5 лет",
+        "amount": 1000,
         "recurrent": False,
         "activator": club_subscription_activator,
         "data": {
-            "timedelta": timedelta(days=365 * 50),
+            "timedelta": timedelta(days=365 * 5),
         },
     },
     "club50_recurrent_yearly": {
         "code": "club50_recurrent_yearly",
-        "stripe_id": "price_1H73rBKgJMaF2rHtyaW1DGWM" if not IS_TEST_STRIPE else "price_1H74BCKgJMaF2rHtRhUtbn3C",
+        "stripe_id": "price_1JajFmFjSIV8F3ex9DlFNhW3" if not IS_TEST_STRIPE else "price_1JajFmFjSIV8F3ex9DlFNhW3",
         "description": "Членство в Клубе на 50 лет (автопополнение каждый год)",
-        "amount": 150,
+        "amount": 1000,
         "recurrent": "yearly",
         "activator": club_subscription_activator,
         "data": {
-            "timedelta": timedelta(days=365 * 50),
+            "timedelta": timedelta(days=365 * 5),
         },
     },
     "club50_recurrent_monthly": {
         "code": "club50_recurrent_monthly",
-        "stripe_id": "price_1H73q7KgJMaF2rHtswNA3rha" if not IS_TEST_STRIPE else "price_1H74BCKgJMaF2rHtRhUtbn3C",
-        "description": "Членство в Клубе на 50 лет (автопополнение каждый месяц)",
-        "amount": 150,
+        "stripe_id": "price_1JajFmFjSIV8F3exhnDlEgIn" if not IS_TEST_STRIPE else "price_1JajFmFjSIV8F3exhnDlEgIn",
+        "description": "Членство в Клубе на 5 лет (автопополнение каждый месяц)",
+        "amount": 1000,
         "recurrent": "monthly",
         "activator": club_subscription_activator,
         "data": {
-            "timedelta": timedelta(days=365 * 50),
+            "timedelta": timedelta(days=365 * 5),
         },
     },
     "club1_invite": {
