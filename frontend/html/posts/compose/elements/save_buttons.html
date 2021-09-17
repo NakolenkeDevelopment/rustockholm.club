@@ -14,12 +14,12 @@
         </button>
 
         {% if form.instance.slug %}
-            <button type="submit" name="action" value="publish" class="button button-inverted" onclick="return confirm('Публикуем? Пост увидят все и он попадет на модерацию')">
+            <button type="submit" name="action" value="publish" class="button button-inverted" onclick="return confirm('Публикуем? Пост увидят все')">
                 Опубликовать 🚀
             </button>
         {% else %}
-            <button type="submit" name="action" value="preview" class="button">
-                Предпросмотр 👀
+            <button type="submit" name="action" value="publish" class="button button-inverted" onclick="return confirm('Публикуем? Пост увидят все')">
+                Опубликовать 🚀
             </button>
         {% endif %}
     {% else %}
