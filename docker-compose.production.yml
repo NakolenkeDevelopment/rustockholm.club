@@ -74,7 +74,6 @@ services:
       
   pgbackups3:
     build:
-      dockerfile: postgres-backup-s3/Dockerfile
       context: postgres-backup-s3/.
     restart: always
     links:
