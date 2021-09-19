@@ -2,7 +2,7 @@ FROM alpine:3.13
 LABEL maintainer="Johannes Schickling <schickling.j@gmail.com>"
 
 ADD install.sh install.sh
-RUN sh install.sh && rm install.sh
+RUN apk update && apk add bash && bash install.sh && rm install.sh && apk del bash && rm -rf /var/cache/apk/*
 
 ENV POSTGRES_DATABASE **None**
 ENV POSTGRES_HOST **None**
