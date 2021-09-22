@@ -19,8 +19,11 @@ services:
       - POSTGRES_HOST=postgres
       - REDIS_DB=0
       - REDIS_HOST=redis
-      - EMAIL_HOST
-      - EMAIL_PORT
+      - EMAIL_HOST=smtp.yandex.com
+      - EMAIL_PORT=465
+      - EMAIL_HOST_USER=club@alleksy.com
+      - EMAIL_HOST_PASSWORD=${email_pass}
+      - EMAIL_USE_TLS=True
       - TELEGRAM_TOKEN=${tg_token}
       - TELEGRAM_ADMIN_CHAT_ID=594822741
       - DEFAULT_FROM_EMAIL=club@alleksy.com
