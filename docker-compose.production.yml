@@ -19,11 +19,11 @@ services:
       - POSTGRES_HOST=postgres
       - REDIS_DB=0
       - REDIS_HOST=redis
-      - EMAIL_HOST=smtp.gmail.com
-      - EMAIL_PORT=587
-      - EMAIL_HOST_USER=johnny.narr@gmail.com
+      - EMAIL_HOST=smtp.yandex.com
+      - EMAIL_PORT=465
+      - EMAIL_HOST_USER=club@alleksy.com
       - EMAIL_HOST_PASSWORD=${email_pass}
-      - DEFAULT_FROM_EMAIL=johnny.narr@gmail.com
+      - DEFAULT_FROM_EMAIL=club@alleksy.com
       - TELEGRAM_TOKEN=${tg_token}
       - TELEGRAM_ADMIN_CHAT_ID=594822741
     restart: always
