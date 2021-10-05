@@ -10,7 +10,7 @@ services:
     environment:
       - MODE=production
       - PYTHONUNBUFFERED=1
-      - DEBUG=false
+      - DEBUG=true
       - APP_HOST=https://rustockholm.club
       - MEDIA_UPLOAD_URL=https://i.rustockholm.club/upload/
       - POSTGRES_DB=vas3k_club
@@ -20,7 +20,7 @@ services:
       - REDIS_DB=0
       - REDIS_HOST=redis
       - EMAIL_HOST=smtp.yandex.com
-      - EMAIL_PORT=465
+      - EMAIL_PORT=587
       - EMAIL_HOST_USER=club@alleksy.com
       - EMAIL_HOST_PASSWORD=${email_pass}
       - DEFAULT_FROM_EMAIL=club@alleksy.com
