@@ -6,6 +6,7 @@ import sentry_sdk
 from dotenv import load_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
+# import logging
 
 load_dotenv()
 
@@ -165,6 +166,11 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "Вастрик.Клуб <club@vas3k.club>")
 
+
+# log = logging.getLogger(__name__)
+
+# log.warn(f'Email settings: EMAIL_HOST:{EMAIL_HOST}, EMAIL_PORT: {EMAIL_PORT}, EMAIL_HOST_USER: {EMAIL_HOST_USER}, EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD}, DEFAULT_FROM_EMAIL:{DEFAULT_FROM_EMAIL}', )
+
 # App
 
 APP_HOST = os.environ.get("APP_HOST") or "http://127.0.0.1:8000"
@@ -302,3 +308,5 @@ if SENTRY_DSN and not DEBUG:
 if DEBUG:
     INSTALLED_APPS += ["debug_toolbar"]
     MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
+
+
