@@ -5,5 +5,5 @@ class AuthException(ClubException):
     pass
 
 
-class PatreonException(AuthException):
-    pass
+#class PatreonException(AuthException):
+#    pass

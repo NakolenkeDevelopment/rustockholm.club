@@ -63,7 +63,7 @@
                         <span class="profile-status-text">{{ user.membership_years_left | floor | rupluralize:"год,года,лет" }}</span>
                     {% endif %}
                 </a>
-                <a href="{% url "edit_notifications" user.slug %}" class="profile-status">
+                <!--<a href="{% url "edit_notifications" user.slug %}" class="profile-status">
                     <span class="profile-status-icon">💌</span>
                     <span class="profile-status-status">
                         {% if user.is_email_unsubscribed %}
@@ -80,7 +80,7 @@
                             {% endif %}
                         {% endif %}
                     </span>
-                </a>
+                </a>-->
                 <!--<a href="{% url "edit_bot" user.slug %}" class="profile-status">
                     <span class="profile-status-icon">🤖</span>
                     <span class="profile-status-status">
