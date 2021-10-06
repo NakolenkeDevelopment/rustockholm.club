@@ -51,7 +51,7 @@ class User(models.Model, ModelDiffMixin):
         (MODERATION_STATUS_DELETED, MODERATION_STATUS_DELETED),
     ]
 
-    DEFAULT_AVATAR = "https://alleksy.com/static/img/av.5d2e693.jpeg"
+    DEFAULT_AVATAR = "https://www.in-depthoutdoors.com/wp-content/themes/ido/img/ido-avatar.png"
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     slug = models.CharField(max_length=32, unique=True)
