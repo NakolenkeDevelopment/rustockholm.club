@@ -29,11 +29,11 @@
             position: relative;
             top: -2px;
         }
-
+/*
             html[theme="dark"] .menu-logo img {
                 filter: invert();
             }
-
+*/
             @media (prefers-color-scheme: dark) {
                 html:not([theme]) .menu-logo img {
                     filter: invert();
