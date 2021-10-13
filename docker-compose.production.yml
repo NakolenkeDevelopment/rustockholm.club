@@ -13,8 +13,8 @@ services:
       - DEBUG=true
       - APP_HOST=https://rustockholm.club
       - MEDIA_UPLOAD_URL=https://i.rustockholm.club/upload/
-      - POSTGRES_DB=vas3k_club
-      - POSTGRES_USER=vas3k
+      - POSTGRES_DB=rustockholm_club
+      - POSTGRES_USER=rustockholm
       - POSTGRES_PASSWORD=${db_pass}
       - POSTGRES_HOST=postgres
       - REDIS_DB=0
@@ -64,16 +64,16 @@ services:
     container_name: club_postgres
     restart: always
     environment:
-      POSTGRES_USER: vas3k
+      POSTGRES_USER: rustockholm
       POSTGRES_PASSWORD: ${db_pass}
-      POSTGRES_DB: vas3k_club
+      POSTGRES_DB: rustockholm_club
     volumes:
-      - /home/vas3k/pgdata:/var/lib/postgresql/data:rw
+      - /home/rustockholm/pgdata:/var/lib/postgresql/data:rw
     ports:
       - "127.0.0.1:54333:5432"
     networks:
       rstk: {}
-      
+
   pgbackups3:
     build:
       context: postgres-backup-s3/.
@@ -87,8 +87,8 @@ services:
       S3_SECRET_ACCESS_KEY: ${s3secret}
       S3_BUCKET: clubspace
       S3_PREFIX: backup
-      POSTGRES_DATABASE: vas3k_club
-      POSTGRES_USER: vas3k
+      POSTGRES_DATABASE: rustockholm_club
+      POSTGRES_USER: rustockholm
       POSTGRES_PASSWORD: ${db_pass}
       POSTGRES_EXTRA_OPTS: '--schema=public --blobs'
       POSTGRES_HOST: postgres

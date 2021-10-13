@@ -19,7 +19,7 @@ Once you decided to code something in the project you'll need to setup your envi
   ```
   When you need to connect to postgres use next params:
   ```dotenv
-  POSTGRES_DB=vas3k_club
+  POSTGRES_DB=rustockholm_club
   POSTGRES_USER=postgres
   POSTGRES_PASSWORD=postgres
   POSTGRES_HOST=localhost
@@ -34,21 +34,21 @@ Once you decided to code something in the project you'll need to setup your envi
           ```sh
           # create db
           $ psql postgres
-          postgres=# createdb vas3k_club
+          postgres=# createdb rustockholm_club
 
-          # create user (user: vas3k, password: vas3k)
+          # create user (user: rustockholm, password: rustockholm)
           postgres=# createuser --interactive --pwpromp
 
           # grant priviliges
-          postgres=# GRANT ALL PRIVILEGES ON DATABASE vas3k_club TO vas3k;
-          postgres=# \connect vas3k_club
-          postgres=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO vas3k;
-          postgres=# GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public to vas3k;
-          postgres=# GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public to vas3k;
+          postgres=# GRANT ALL PRIVILEGES ON DATABASE rustockholm_club TO rustockholm;
+          postgres=# \connect rustockholm_club
+          postgres=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO rustockholm;
+          postgres=# GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public to rustockholm;
+          postgres=# GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public to rustockholm;
           postgres=# \q
 
           # check connection
-          $ psql -d vas3k_club -U vas3k
+          $ psql -d rustockholm_club -U rustockholm
           ```
 
   </details>
@@ -86,4 +86,4 @@ To run telegram bot you have to:
 
 ## Docker-compose
 
-Check out our [docker-compose.yml](https://github.com/vas3k/vas3k.club/blob/master/docker-compose.yml) to understand the infrastructure.
+Check out our [docker-compose.yml](https://github.com/rustockholm/rustockholm.club/blob/master/docker-compose.yml) to understand the infrastructure.

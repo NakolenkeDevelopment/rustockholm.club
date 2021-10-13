@@ -21,4 +21,4 @@ RUN sh -c 'if [ "$MODE" = 'dev' ]; then pipenv lock --dev --requirements > requi
 RUN pip3 install -r requirements.txt
 RUN python3 -c "import nltk; nltk.download('punkt')"
 
-RUN sh -c 'if [ -e vas3k_club.env ]; then cp -rf vas3k_club.env /app/club/.env; fi'
+RUN sh -c 'if [ -e rustockholm_club.env ]; then cp -rf rustockholm_club.env /app/club/.env; fi'

@@ -89,7 +89,7 @@ def generate_ical_invite(request):
     cal.add_component(event)
 
     response = HttpResponse(cal.to_ical(), content_type="application/force-download")
-    response["Content-Disposition"] = "attachment; filename=ical_vas3k_club.ics"
+    response["Content-Disposition"] = "attachment; filename=ical_rustockholm_club.ics"
     return response
 
 

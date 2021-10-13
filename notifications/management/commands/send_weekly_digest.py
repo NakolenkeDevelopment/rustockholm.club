@@ -26,7 +26,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # render digest using a special html endpoint
-        digest_url = "https://vas3k.club" + reverse("render_weekly_digest")
+        digest_url = "https://rustockholm.club" + reverse("render_weekly_digest")
         self.stdout.write(f"Generating digest: {digest_url}")
 
         digest_html_response = requests.get(digest_url)
@@ -50,7 +50,7 @@ class Command(BaseCommand):
             slug=f"{year}_{week}",
             type=Post.TYPE_WEEKLY_DIGEST,
             defaults=dict(
-                author=User.objects.filter(slug="vas3k").first(),
+                author=User.objects.filter(slug="rustockholm").first(),
                 title=f"Клубный журнал. Итоги недели. Выпуск #{issue}",
                 html=no_footer_digest_html,
                 text=no_footer_digest_html,
