@@ -14,11 +14,13 @@ RUN apt-get update \
 
 WORKDIR /app
 
-COPY . /app
+COPY ./requirements.txt /app/requirements.txt
 RUN pip3 install pipenv
 RUN sh -c 'if [ "$MODE" = 'production' ]; then pipenv lock --keep-outdated --requirements > requirements.txt; fi'
 RUN sh -c 'if [ "$MODE" = 'dev' ]; then pipenv lock --dev --requirements > requirements.txt; fi'
 RUN pip3 install -r requirements.txt
 RUN python3 -c "import nltk; nltk.download('punkt')"
+
+COPY . /app
 
 RUN sh -c 'if [ -e rustockholm_club.env ]; then cp -rf rustockholm_club.env /app/club/.env; fi'
