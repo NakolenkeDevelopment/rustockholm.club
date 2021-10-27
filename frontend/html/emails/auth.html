@@ -38,9 +38,12 @@ ul {
 {% endblock %}
 
 {% block logo %}
+
 <a href="https://rustockholm.club">
     <img src="{{ settings.APP_HOST }}{% static 'images/logo/logo-256.png' %}" alt="" height="80" width="80" style="display:inline-block;width: 80px;height: 80px;min-width: 80px; margin-top: 30px;">
 </a>
+
+<h3 style="float: left; line-height: 80px; padding-right: 20px; margin-top: 24px">Rustockholm</h3>
 {% endblock %}
 
 {% block title %}
@@ -63,10 +66,6 @@ ul {
     <p>
         Если вы не запрашивали никаких кодов, значит кто-то пытается войти в ваш аккаунт.
         Но без кода у них ничего не получится, а через несколько неправильных попыток мы их удаляем и не даём больше запрашивать какое-то время.
-    </p>
-
-    <p>
-        Кстати, лайфхак, эти коды намного быстрее доходят через нашего телеграм-бота. Подключите его в своем профиле, если еще не сделали этого.
     </p>
 
     <br><br><br>
