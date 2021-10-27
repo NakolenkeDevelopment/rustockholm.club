@@ -19,7 +19,7 @@ def club_subscription_activator(product, payment, user):
         user.membership_expires_at = now  # ignore days in the past
 
     user.membership_expires_at += product["data"]["timedelta"]
-    log.info(f'club_subscription_activator product:{json.dumps(product, default=lambda o: o.__dict__, sort_keys=True, indent=4)}, payment:{json.dumps(payment, default=lambda o: o.__dict__, sort_keys=True, indent=4)}, user:{json.dumps(user, default=lambda o: o.__dict__, sort_keys=True, indent=4)}')
+    log.info(f"club_subscription_activator product:{product}, payment:{payment}, user:{user}")
 
     user.membership_platform_type = User.MEMBERSHIP_PLATFORM_DIRECT
     user.membership_platform_data = {
