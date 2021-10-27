@@ -1,8 +1,8 @@
-30 2 * * *  /home/rustockholm/backup.sh >> /home/rustockholm/backup.log 2>&1
-0 1 * * * cd /home/rustockholm/rustockholm.club && /usr/local/bin/pipenv run python manage.py delete_users >>/home/rustockholm/crons.log 2>&1
-0 3 * * * cd /home/rustockholm/rustockholm.club && /usr/local/bin/pipenv run python manage.py renew_subscriptions >>/home/rustockholm/crons.log 2>&1
-0 9 * * 2-6 cd /home/rustockholm/rustockholm.club && /usr/local/bin/pipenv run python manage.py send_daily_digest --production true >>/home/rustockholm/crons.log 2>&1
-0 11 * * 1 cd /home/rustockholm/rustockholm.club && /usr/local/bin/pipenv run python manage.py send_weekly_digest --production true >>/home/rustockholm/crons.log 2>&1
-0 5 * * 7 cd /home/rustockholm/rustockholm.club && /usr/local/bin/pipenv run python manage.py rebuild_search_index >>/home/rustockholm/crons.log 2>&1
-0 8 * * * cd /home/rustockholm/rustockholm.club && /usr/local/bin/pipenv run python manage.py replay_stuck_reviews >>/home/rustockholm/crons.log 2>&1
-13 */3 * * * cd /home/rustockholm/rustockholm.club && /usr/local/bin/pipenv run python manage.py update_hotness >>/home/rustockholm/crons.log 2>&1
+@REM 30 2 * * *  /home/rustockholm/backup.sh >> /home/rustockholm/backup.log 2>&1
+0 1 * * * docker exec -it club_app python3 manage.py delete_users >>/home/rustockholm/crons.log 2>&1
+0 3 * * * docker exec -it club_app python3 manage.py renew_subscriptions >>/home/rustockholm/crons.log 2>&1
+@REM 0 9 * * 2-6 docker exec -it club_app python3 manage.py send_daily_digest --production true >>/home/rustockholm/crons.log 2>&1
+@REM 0 11 * * 1 docker exec -it club_app python3 manage.py send_weekly_digest --production true >>/home/rustockholm/crons.log 2>&1
+0 5 * * 7 docker exec -it club_app python3 manage.py rebuild_search_index >>/home/rustockholm/crons.log 2>&1
+0 8 * * * docker exec -it club_app python3 manage.py replay_stuck_reviews >>/home/rustockholm/crons.log 2>&1
+13 */3 * * * docker exec -it club_app python3 manage.py update_hotness >>/home/rustockholm/crons.log 2>&1
