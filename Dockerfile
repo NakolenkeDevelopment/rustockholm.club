@@ -14,7 +14,8 @@ RUN apt-get update \
 
 WORKDIR /app
 
-COPY ./requirements.txt /app/requirements.txt
+COPY ./Pipfile.lock /app/Pipfile.lock
+COPY ./Pipfile /app/Pipfile
 RUN pip3 install pipenv
 RUN sh -c 'if [ "$MODE" = 'production' ]; then pipenv lock --keep-outdated --requirements > requirements.txt; fi'
 RUN sh -c 'if [ "$MODE" = 'dev' ]; then pipenv lock --dev --requirements > requirements.txt; fi'
