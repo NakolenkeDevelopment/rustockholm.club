@@ -27,6 +27,7 @@ services:
       - TELEGRAM_TOKEN=${tg_token}
       - TELEGRAM_ADMIN_CHAT_ID=594822741
       - SENTRY_DSN=${sentry_sdn}
+      - STRIPE_WEBHOOK_SECRET=whsec_JkJEzWVyCpLCi1wYZbJ6pm4S4q2XVvGH
     restart: always
     volumes:
       - ./frontend/static:/app/frontend/static
